@@ -74,7 +74,7 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,matrix_transform = &default_transform;
+        zmk,physical-layouts = &charybdis_layout;
 	zmk,underglow = &led_strip;
     };
 
@@ -107,5 +107,15 @@
             ;
     };
 
+};
+
+&charybdis_layout{
+    transform = <&default_transform>;
+	kscan = <&kscan0>;
+};
+
+zephyr_udc0: &usbd { 
+    compatible = "nordic,nrf-usbd"; 
+    status = "okay"; 
 };
 
