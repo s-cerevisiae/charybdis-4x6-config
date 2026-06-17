@@ -98,9 +98,9 @@
         bracket {
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans          &trans     &trans          &trans           &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans          &trans     &trans          &trans           &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp MINUS       &kp EQUAL  &kp LBKT        &kp RBKT         &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp UNDERSCORE  &kp PLUS   &kp LEFT_BRACE  &kp RIGHT_BRACE  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp MINUS       &kp EQUAL  &kp LBKT        &kp RBKT         &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans          &trans     &trans          &trans           &trans
                         &trans  &trans  &trans    &trans  &trans
                                 &trans  &trans    &trans
             >;
