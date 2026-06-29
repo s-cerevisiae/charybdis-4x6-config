@@ -20,6 +20,15 @@ Key codes
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+        combo_game_layer {
+            timeout-ms = <50>;
+            key-positions = <50 54>;
+            bindings = <&tog 6>;
+        };
+    };
+
     behaviors {
         lth: layer_tap_hold_preferred {
             compatible = "zmk,behavior-hold-tap";
@@ -141,6 +150,17 @@ Key codes
 &trans  &trans          &trans        &bt BT_CLR    &trans        &trans          &bt BT_NXT  &trans  &trans  &trans  &trans  &trans
                                       &trans        &trans        &trans          &trans      &trans
                                                     &trans        &trans          &trans
+            >;
+        };
+
+        game {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans    &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans    &trans    &trans    &trans
+&kp ESC &trans  &trans  &trans  &kp F   &trans    &trans    &trans    &trans    &trans    &trans    &kp SQT
+&trans  &kp Z   &kp X   &kp C   &kp V   &trans    &trans    &kp M     &kp COMMA &kp DOT   &kp FSLH  &trans
+                        &trans  &trans  &trans    &trans    &trans
+                                &trans  &trans    &trans
             >;
         };
     };
