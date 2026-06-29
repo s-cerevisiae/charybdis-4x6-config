@@ -21,13 +21,6 @@ Key codes
 
 / {
     behaviors {
-        mscroll: tap_dance_mouse_scroll {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <350>;
-            bindings = <&mo 3>, <&mo 4>;
-        };
-
         lth: layer_tap_hold_preferred {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
