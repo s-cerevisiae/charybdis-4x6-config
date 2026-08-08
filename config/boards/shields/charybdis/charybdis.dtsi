@@ -75,7 +75,6 @@
     chosen {
         zmk,kscan = &kscan0;
         zmk,physical-layouts = &charybdis_layout;
-    zmk,underglow = &led_strip;
     };
 
     default_transform: keymap_transform_0 {
