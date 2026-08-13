@@ -52,6 +52,7 @@ Key codes
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             bindings = <&mo>, <&ktap>;
+            display-name = "Layer-Tap Hold Preferred";
         };
 
         hml: home_row_mod_left {
@@ -62,6 +63,7 @@ Key codes
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&ktap>;
+            display-name = "Home Row Mod Left";
 
             // List of keys on the right side of the keyboard
             // shift excluded
@@ -84,6 +86,7 @@ Key codes
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
             bindings = <&kp>, <&ktap>;
+            display-name = "Home Row Mod Right";
 
             // List of keys on the left side of the keyboard
             // shift excluded
