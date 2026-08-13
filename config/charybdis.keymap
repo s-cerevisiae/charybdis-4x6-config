@@ -13,12 +13,6 @@ Key codes
             53 54 55
 */
 
-&lt {
-    tapping-term-ms = <200>;
-    flavor = "balanced";
-    quick-tap-ms = <150>;
-};
-
 / {
     combos {
         compatible = "zmk,combos";
@@ -29,14 +23,35 @@ Key codes
         };
     };
 
+    macros {
+        // longer tap for games
+        ktap: key_tap {
+            compatible = "zmk,behavior-macro-one-param";
+            #binding-cells = <1>;
+            // default 30 should also work
+            tap-ms = <33>;
+            bindings = <&macro_param_1to1 &kp MACRO_PLACEHOLDER>;
+        };
+    };
+
     behaviors {
+        lt: layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            bindings = <&mo>, <&ktap>;
+            display-name = "Layer-Tap";
+        };
+
         lth: layer_tap_hold_preferred {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "hold-preferred";
             tapping-term-ms = <200>;
             quick-tap-ms = <175>;
-            bindings = <&mo>, <&kp>;
+            bindings = <&mo>, <&ktap>;
         };
 
         hml: home_row_mod_left {
@@ -46,7 +61,7 @@ Key codes
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
+            bindings = <&kp>, <&ktap>;
 
             // List of keys on the right side of the keyboard
             // shift excluded
@@ -68,7 +83,7 @@ Key codes
             require-prior-idle-ms = <150>;
             tapping-term-ms = <280>;
             quick-tap-ms = <175>;
-            bindings = <&kp>, <&kp>;
+            bindings = <&kp>, <&ktap>;
 
             // List of keys on the left side of the keyboard
             // shift excluded
