@@ -1,6 +1,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
 /*
@@ -22,6 +23,7 @@ Key codes
 / {
     combos {
         compatible = "zmk,combos";
+
         combo_game_layer {
             timeout-ms = <50>;
             key-positions = <50 54>;
@@ -37,6 +39,7 @@ Key codes
             tapping-term-ms = <200>;
             quick-tap-ms = <200>;
             bindings = <&mo>, <&kp>;
+
             display-name = "Layer-Tap Hold Preferred";
         };
 
@@ -48,6 +51,7 @@ Key codes
             tapping-term-ms = <280>;
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
+
             display-name = "Home Row Mod Left";
 
             // List of keys on the right side of the keyboard
@@ -60,6 +64,7 @@ Key codes
                 51 52
                 55
             >;
+
             hold-trigger-on-release;
         };
 
@@ -71,6 +76,7 @@ Key codes
             tapping-term-ms = <280>;
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
+
             display-name = "Home Row Mod Right";
 
             // List of keys on the left side of the keyboard
@@ -83,6 +89,7 @@ Key codes
                          48 49 50
                             53 54
             >;
+
             hold-trigger-on-release;
         };
     };
@@ -93,47 +100,47 @@ Key codes
         base {
             display-name = "base";
             bindings = <
-&kp GRAVE       &kp N1       &kp N2       &kp N3         &kp N4        &kp N5      &kp N6  &kp N7        &kp N8             &kp N9         &kp N0          &kp DELETE
-&kp TAB         &kp Q        &kp W        &kp E          &kp R         &kp T       &kp Y   &kp U         &kp I              &kp O          &kp P           &kp BSLH
-&lth 1 ESC      &kp A        &kp S        &kp D          &lt 3 F       &kp G       &kp H   &kp J         &kp K              &kp L          &kp SEMI        &lt 1 SQT
-&kp LEFT_SHIFT  &hml LALT Z  &hml LGUI X  &hml LSHIFT C  &hml LCTRL V  &kp B       &kp N   &hmr RCTRL M  &hmr RSHIFT COMMA  &hmr RGUI DOT  &hmr LALT FSLH  &kp RIGHT_SHIFT
-                                          &kp BACKSPACE  &kp SPACE     &caps_word  &mkp 2  &lth 2 ENTER
-                                                         &kp LCTRL     &kp LGUI    &mkp 1
+&kp GRAVE       &kp N1       &kp N2       &kp N3            &kp N4        &kp N5        &kp N6  &kp N7        &kp N8             &kp N9         &kp N0          &kp DELETE
+&kp TAB         &kp Q        &kp W        &kp E             &kp R         &kp T         &kp Y   &kp U         &kp I              &kp O          &kp P           &kp BSLH
+&lth 2 ESC      &kp A        &kp S        &kp D             &lt 3 F       &kp G         &kp H   &kp J         &kp K              &kp L          &kp SEMI        &lt 2 SQT
+&kp LEFT_SHIFT  &hml LALT Z  &hml LGUI X  &hml LSHIFT C     &hml LCTRL V  &kp B         &kp N   &hmr RCTRL M  &hmr RSHIFT COMMA  &hmr RGUI DOT  &hmr LALT FSLH  &kp RIGHT_SHIFT
+                                          &lth 1 BACKSPACE  &kp SPACE     &caps_word    &mkp 2  &lth 1 ENTER
+                                                            &kp LCTRL     &kp LGUI      &mkp 1
+            >;
+        };
+
+        num {
+            display-name = "num";
+            bindings = <
+&trans     &trans     &trans     &trans     &trans    &trans       &trans     &trans     &trans    &trans    &trans    &trans
+&kp TILDE  &kp EXCL   &kp AT     &kp POUND  &kp DLLR  &kp PRCNT    &kp CARET  &kp AMPS   &kp STAR  &kp LPAR  &kp RPAR  &trans
+&kp GRAVE  &kp N1     &kp N2     &kp N3     &kp N4    &kp N5       &kp N6     &kp N7     &kp N8    &kp N9    &kp N0    &trans
+&trans     &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &trans       &trans     &kp UNDER  &kp PLUS  &kp LBRC  &kp RBRC  &trans
+                                 &trans     &trans    &trans       &trans     &trans
+                                            &trans    &trans       &trans
             >;
         };
 
         fn {
             display-name = "fn";
             bindings = <
-&kp F12  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6                &kp F7                &kp F8             &kp F9           &kp F10          &kp F11
-&trans   &trans  &trans  &trans  &trans  &trans    &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp PRINTSCREEN  &trans
-&mo 5    &trans  &trans  &trans  &trans  &trans    &kp LEFT              &kp DOWN              &kp UP             &kp RIGHT        &trans           &mo 5
-&trans   &trans  &trans  &trans  &trans  &trans    &kp HOME              &kp PG_DN             &kp PG_UP          &kp END          &hmr RALT FSLH   &trans
-                         &trans  &trans  &trans    &trans                &trans
-                                 &trans  &trans    &trans
-            >;
-        };
-
-        bracket {
-            display-name = "bracket";
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans          &trans     &trans          &trans           &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp UNDERSCORE  &kp PLUS   &kp LEFT_BRACE  &kp RIGHT_BRACE  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp MINUS       &kp EQUAL  &kp LBKT        &kp RBKT         &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans          &trans     &trans          &trans           &trans
-                        &trans  &trans  &trans    &trans  &trans
-                                &trans  &trans    &trans
+&kp F12  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6    &kp F7     &kp F8     &kp F9     &kp F10          &kp F11
+&kp F12  &kp F1        &kp F2        &kp F3        &kp F4        &kp F5        &kp F6    &kp F7     &kp F8     &kp F9     &kp F10          &kp F11
+&mo 5    &kp C_BRI_DN  &kp C_BRI_UP  &kp C_VOL_DN  &kp C_VOL_UP  &kp C_MUTE    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp PRINTSCREEN  &mo 5
+&trans   &trans        &trans        &trans        &trans        &trans        &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &hmr RALT FSLH   &trans
+                                     &kp DELETE    &trans        &trans        &trans    &trans
+                                                   &trans        &trans        &trans
             >;
         };
 
         mouse {
             display-name = "mouse";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &mo 4   &trans  &trans    &trans    &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &mkp MB4  &mkp MB5  &trans    &trans  &trans
-                        &trans  &trans  &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans  &mo 4   &trans  &trans    &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &mkp MB4  &mkp MB5  &trans    &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans
                                 &trans  &trans    &trans
             >;
         };
@@ -141,11 +148,11 @@ Key codes
         scroll {
             display-name = "scroll";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans    &trans    &trans  &trans
-&trans  &trans  &trans  &trans  &none   &trans    &trans    &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &mkp MB4  &mkp MB5  &trans    &trans  &trans
-                        &trans  &trans  &trans    &trans    &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans    &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &none   &trans    &trans  &mkp MB1  &mkp MB2  &mkp MB3  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &mkp MB4  &mkp MB5  &trans    &trans  &trans
+                        &trans  &trans  &trans    &trans  &trans
                                 &trans  &trans    &trans
             >;
         };
@@ -153,24 +160,24 @@ Key codes
         bluetooth {
             display-name = "bluetooth";
             bindings = <
-&trans  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans      &trans  &trans  &trans  &trans  &trans
-&trans  &trans          &trans        &trans        &trans        &trans          &trans      &trans  &trans  &trans  &trans  &trans
-&trans  &bt BT_CLR_ALL  &trans        &trans        &trans        &trans          &trans      &trans  &trans  &trans  &trans  &trans
-&trans  &trans          &trans        &bt BT_CLR    &trans        &trans          &bt BT_NXT  &trans  &trans  &trans  &trans  &trans
-                                      &trans        &trans        &trans          &trans      &trans
-                                                    &trans        &trans          &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans      &trans        &trans  &trans  &trans  &trans
+&trans  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans      &out OUT_TOG  &trans  &trans  &trans  &trans
+&trans  &trans        &trans        &trans        &trans        &trans          &trans      &trans        &trans  &trans  &trans  &trans
+&trans  &trans        &trans        &bt BT_CLR    &trans        &trans          &bt BT_NXT  &trans        &trans  &trans  &trans  &trans
+                                    &trans        &trans        &trans          &trans      &trans
+                                                  &trans        &trans          &trans
             >;
         };
 
         game {
             display-name = "game";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans    &trans    &trans    &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans    &trans    &trans    &trans    &trans    &trans
-&kp ESC &trans  &trans  &trans  &kp F   &trans    &trans    &trans    &trans    &trans    &trans    &kp SQT
-&trans  &kp Z   &kp X   &kp C   &kp V   &trans    &trans    &kp M     &kp COMMA &kp DOT   &kp FSLH  &trans
-                        &trans  &trans  &trans    &trans    &trans
-                                &trans  &trans    &trans
+&trans   &trans  &trans  &trans         &trans  &trans    &trans  &trans     &trans     &trans   &trans    &trans
+&trans   &trans  &trans  &trans         &trans  &trans    &trans  &trans     &trans     &trans   &trans    &trans
+&kp ESC  &trans  &trans  &trans         &kp F   &trans    &trans  &trans     &trans     &trans   &trans    &kp SQT
+&trans   &kp Z   &kp X   &kp C          &kp V   &trans    &trans  &kp M      &kp COMMA  &kp DOT  &kp FSLH  &trans
+                         &kp BACKSPACE  &trans  &trans    &trans  &kp ENTER
+                                        &trans  &trans    &trans
             >;
         };
     };
